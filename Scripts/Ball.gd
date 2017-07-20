@@ -13,7 +13,7 @@ func _fixed_process(delta):
 	
 	for body in bodies:
 		if body.is_in_group("Bricks"):
-			get_node("/root/World").score += 5
+			get_node("/root/World").score += 420
 			get_node("Horn").play("horn")
 			body.queue_free()
 			number_bricks += 1
