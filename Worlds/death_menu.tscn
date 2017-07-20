@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Textures/you_died.png" type="Texture" id=1]
+[ext_resource path="res://Textures/retry_normal.png" type="Texture" id=2]
+[ext_resource path="res://Textures/retry_pressed.png" type="Texture" id=3]
+[ext_resource path="res://Textures/exit_normal.png" type="Texture" id=4]
+[ext_resource path="res://Textures/exit_pressed.png" type="Texture" id=5]
+[ext_resource path="res://Audio/sad.smp" type="Sample" id=6]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends TextureButton
+
+func _ready():
+	connect(\"pressed\", self, \"_on_pressed\")
+	pass
+	
+func _on_pressed(): 
+	get_tree().change_scene(\"res://Worlds/World.tscn\")
+	pass"
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends TextureButton
+
+func _ready():
+	connect(\"pressed\", self, \"_on_pressed\")
+	pass
+
+func _on_pressed():
+	get_tree().quit()
+	pass
+"
+
+[sub_resource type="SampleLibrary" id=3]
+
+samples/sad = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 6 )
+}
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends SamplePlayer2D
+
+func _ready():
+	play(\"sad\")
+"
+
+[node name="death_menu" type="Node"]
+
+[node name="TextureFrame" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="retry_button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 384.0
+margin/top = 288.0
+margin/right = 621.0
+margin/bottom = 352.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = SubResource( 1 )
+
+[node name="exit_button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 384.0
+margin/top = 384.0
+margin/right = 621.0
+margin/bottom = 448.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+textures/pressed = ExtResource( 5 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = SubResource( 2 )
+
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 3 )
+config/pitch_random = 0.0
+script/script = SubResource( 4 )
+
+
