@@ -6,7 +6,7 @@
 [ext_resource path="res://Textures/return_menu_normal.png" type="Texture" id=4]
 [ext_resource path="res://Textures/return_menu_pressed.png" type="Texture" id=5]
 
-[sub_resource type="SampleLibrary" id=2]
+[sub_resource type="SampleLibrary" id=1]
 
 samples/congratulations = {
 "db": 0.0,
@@ -15,14 +15,14 @@ samples/congratulations = {
 "sample": ExtResource( 1 )
 }
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=2]
 
 script/source = "extends SamplePlayer
 
 func _ready():
 	play(\"congratulations\")"
 
-[sub_resource type="SampleLibrary" id=5]
+[sub_resource type="SampleLibrary" id=3]
 
 samples/omg = {
 "db": 0.0,
@@ -39,7 +39,7 @@ func _ready():
 	play(\"omg\")
 "
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=5]
 
 script/source = "extends TextureButton
 
@@ -57,7 +57,7 @@ func _on_pressed():
 [node name="congrats" type="SamplePlayer" parent="."]
 
 config/polyphony = 1
-config/samples = SubResource( 2 )
+config/samples = SubResource( 1 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
@@ -70,12 +70,12 @@ default/filter/gain = 1.0
 default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
-script/script = SubResource( 3 )
+script/script = SubResource( 2 )
 
 [node name="omggg" type="SamplePlayer" parent="."]
 
 config/polyphony = 1
-config/samples = SubResource( 5 )
+config/samples = SubResource( 3 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
@@ -120,6 +120,6 @@ textures/normal = ExtResource( 4 )
 textures/pressed = ExtResource( 5 )
 params/resize_mode = 0
 params/stretch_mode = 0
-script/script = SubResource( 1 )
+script/script = SubResource( 5 )
 
 
