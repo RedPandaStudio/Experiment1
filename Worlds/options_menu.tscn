@@ -1,21 +1,56 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Textures/options_background.png" type="Texture" id=1]
 [ext_resource path="res://Textures/return_menu_normal.png" type="Texture" id=2]
 [ext_resource path="res://Textures/return_menu_pressed.png" type="Texture" id=3]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends HSlider
 
 func _ready():
-	connect(\"value_changed\", self, \"on_value_change\")
+	var sound_proc = get_node(\"sound_procent\")
+	self.connect(\"value_changed\", sound_proc, \"_on_sound_slider_value_changed\", [get_value()])
+
+"
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Label
+
+func _ready():
 	pass
 
-func on_value_change():
-	get_node(\"sound_percent\").set_text(str(get_value()) + \"%\")"
+func _on_sound_slider_value_changed( value ):
+	set_text(str(value) + \"%\")
+	pass
 
-[sub_resource type="GDScript" id=1]
+"
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends HSlider
+
+func _ready():
+	var sound_proc = get_node(\"music_procent\")
+	self.connect(\"value_changed\", sound_proc, \"_on_music_slider_value_changed\", [get_value()])
+
+"
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends Label
+
+func _ready():
+	pass
+
+func _on_music_slider_value_changed( value ):
+	set_text(str(value) + \"%\")
+	pass
+
+"
+
+[sub_resource type="GDScript" id=5]
 
 script/source = "extends TextureButton
 
@@ -65,7 +100,7 @@ range/rounded = false
 tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
-script/script = SubResource( 2 )
+script/script = SubResource( 1 )
 
 [node name="sound_percent" type="Label" parent="sound_slider"]
 
@@ -81,6 +116,7 @@ text = "100%"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+script/script = SubResource( 2 )
 
 [node name="music_slider" type="HSlider" parent="."]
 
@@ -104,6 +140,7 @@ range/rounded = false
 tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
+script/script = SubResource( 3 )
 
 [node name="music_percent" type="Label" parent="music_slider"]
 
@@ -119,6 +156,7 @@ text = "100%"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+script/script = SubResource( 4 )
 
 [node name="back_to_menu" type="TextureButton" parent="."]
 
@@ -137,6 +175,10 @@ textures/normal = ExtResource( 2 )
 textures/pressed = ExtResource( 3 )
 params/resize_mode = 0
 params/stretch_mode = 0
-script/script = SubResource( 1 )
+script/script = SubResource( 5 )
+
+[connection signal="value_changed" from="sound_slider" to="sound_slider/sound_percent" method="_on_sound_slider_value_changed"]
+
+[connection signal="value_changed" from="music_slider" to="music_slider/music_percent" method="_on_music_slider_value_changed"]
 
 
