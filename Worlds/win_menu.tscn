@@ -52,7 +52,9 @@ func _on_pressed():
 	pass
 "
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node2D"]
+
+transform/scale = Vector2( 1.172, 1.125 )
 
 [node name="congrats" type="SamplePlayer" parent="."]
 

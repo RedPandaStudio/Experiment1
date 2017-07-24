@@ -49,7 +49,9 @@ func _ready():
 	play(\"sad\")
 "
 
-[node name="death_menu" type="Node"]
+[node name="death_menu" type="Node2D"]
+
+transform/scale = Vector2( 1.172, 1.125 )
 
 [node name="TextureFrame" type="TextureFrame" parent="."]
 
