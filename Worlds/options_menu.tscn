@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=1]
 
-[ext_resource path="res://Textures/options_background.png" type="Texture" id=1]
-[ext_resource path="res://Fonts/OpenSans.fnt" type="BitmapFont" id=2]
-[ext_resource path="res://Textures/return_menu_normal.png" type="Texture" id=3]
-[ext_resource path="res://Textures/return_menu_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Textures/bg_menu.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/OpenSansBold.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Fonts/OpenSans.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Textures/Button.png" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
 
@@ -81,6 +81,82 @@ margin/bottom = 600.0
 texture = ExtResource( 1 )
 stretch_mode = 0
 
+[node name="Title" type="Label" parent="."]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 265.0
+margin/top = 36.0
+margin/right = 1274.0
+margin/bottom = 294.0
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Sound_and_Music" type="Label" parent="."]
+
+rect/scale = Vector2( 0.15, 0.15 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 384.0
+margin/top = 213.0
+margin/right = 2254.0
+margin/bottom = 471.0
+custom_fonts/font = ExtResource( 2 )
+text = "Sound & Music"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Sound" type="Label" parent="."]
+
+rect/scale = Vector2( 0.1, 0.1 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 246.0
+margin/top = 283.0
+margin/right = 1117.0
+margin/bottom = 541.0
+custom_fonts/font = ExtResource( 2 )
+text = "Sound:"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Music" type="Label" parent="."]
+
+rect/scale = Vector2( 0.1, 0.1 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 243.0
+margin/top = 344.0
+margin/right = 1114.0
+margin/bottom = 602.0
+custom_fonts/font = ExtResource( 2 )
+text = "Music:"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="sound_slider" type="HSlider" parent="."]
 
 rect/scale = Vector2( 2, 2 )
@@ -115,7 +191,7 @@ margin/left = 260.0
 margin/top = 2.0
 margin/right = 905.0
 margin/bottom = 261.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "100%"
 percent_visible = 1.0
 lines_skipped = 0
@@ -156,7 +232,7 @@ margin/left = 260.0
 margin/top = 2.0
 margin/right = 905.0
 margin/bottom = 261.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "100%"
 percent_visible = 1.0
 lines_skipped = 0
@@ -169,18 +245,38 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 380.0
-margin/top = 440.0
-margin/right = 617.0
-margin/bottom = 504.0
+margin/left = 427.0
+margin/top = 444.0
+margin/right = 591.0
+margin/bottom = 483.25
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 3 )
+textures/normal = ExtResource( 4 )
 textures/pressed = ExtResource( 4 )
 params/resize_mode = 0
+params/scale = Vector2( 0.25, 0.25 )
 params/stretch_mode = 0
 script/script = SubResource( 5 )
+
+[node name="back_to_menu_text" type="Label" parent="back_to_menu"]
+
+rect/scale = Vector2( 0.07, 0.07 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 9.0
+margin/top = 10.0
+margin/right = 2034.0
+margin/bottom = 268.0
+custom_fonts/font = ExtResource( 2 )
+text = "Return to menu"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="value_changed" from="sound_slider" to="sound_slider/sound_percent" method="_on_sound_slider_value_changed"]
 
