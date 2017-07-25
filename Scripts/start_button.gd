@@ -5,5 +5,5 @@ func _ready():
 	pass
 	
 func _on_pressed(): 
-	get_tree().change_scene("res://Worlds/World.tscn")
+	get_tree().change_scene("res://Worlds/level_selector.tscn")
 	pass
