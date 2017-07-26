@@ -86,35 +86,39 @@ max_lines_visible = -1
 
 [node name="retry_button" type="TextureButton" parent="."]
 
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 423.0
-margin/top = 288.0
-margin/right = 587.0
-margin/bottom = 327.25
+margin/left = -327.0
+margin/top = -221.0
+margin/right = -633.0
+margin/bottom = -323.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 3 )
 textures/pressed = ExtResource( 3 )
 params/resize_mode = 0
-params/scale = Vector2( 0.25, 0.25 )
+params/scale = Vector2( 0.34, 0.34 )
 params/stretch_mode = 0
 script/script = SubResource( 1 )
 
 [node name="retry_text" type="Label" parent="retry_button"]
 
-rect/scale = Vector2( 0.11, 0.11 )
+rect/scale = Vector2( 0.22, 0.22 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 42.0
-margin/top = 6.0
-margin/right = 735.0
-margin/bottom = 264.0
+margin/left = -1.0
+margin/top = 0.0
+margin/right = 1397.0
+margin/bottom = 486.0
 custom_fonts/font = ExtResource( 2 )
 text = "Retry"
 align = 1
@@ -129,31 +133,31 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 421.0
-margin/top = 368.0
-margin/right = 585.0
-margin/bottom = 407.25
+margin/left = 359.0
+margin/top = 412.0
+margin/right = 665.0
+margin/bottom = 514.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 3 )
 textures/pressed = ExtResource( 3 )
 params/resize_mode = 0
-params/scale = Vector2( 0.25, 0.25 )
+params/scale = Vector2( 0.34, 0.34 )
 params/stretch_mode = 0
 script/script = SubResource( 2 )
 
 [node name="exit_text" type="Label" parent="exit_button"]
 
-rect/scale = Vector2( 0.11, 0.11 )
+rect/scale = Vector2( 0.22, 0.22 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 54.0
-margin/top = 6.0
-margin/right = 534.0
-margin/bottom = 264.0
+margin/left = -1.0
+margin/top = 0.0
+margin/right = 1399.0
+margin/bottom = 503.0
 custom_fonts/font = ExtResource( 2 )
 text = "Exit"
 align = 1
